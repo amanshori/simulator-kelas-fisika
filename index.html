@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulator Kelas Fisika SMA</title>
+  
+  <!-- CSS Utama -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  
+  <!-- KaTeX (Untuk Rendering Rumus LaTeX yang Cepat & Ringan) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
+  <!-- PWA Manifest & Theme Color -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+</head>
+<body>
+
+  <!-- Header Utama -->
+  <header class="app-header">
+    <h1>Simulator Kelas Fisika</h1>
+    <p class="subtitle">Media Pembelajaran Fisika Interaktif & Kuis</p>
+  </header>
+
+  <!-- Navigasi Sub-Bab Vektor (Scroll Horizontal di HP) -->
+  <nav class="nav-bar">
+    <button class="nav-btn active" onclick="loadModule('01-mekanika/01-vektor/01-trigonometri', this)">1. Trigonometri</button>
+    <button class="nav-btn" onclick="loadModule('01-mekanika/01-vektor/02-vektor-dasar', this)">2. Konsep Vektor</button>
+    <button class="nav-btn" onclick="loadModule('01-mekanika/01-vektor/03-geometri', this)">3. Geometri</button>
+    <button class="nav-btn" onclick="loadModule('01-mekanika/01-vektor/04-analitis', this)">4. Analitis</button>
+    <button class="nav-btn" onclick="loadModule('01-mekanika/01-vektor/05-perkalian', this)">5. Perkalian</button>
+    <button class="nav-btn" onclick="loadModule('01-mekanika/01-vektor/quiz', this)">Kuis Vektor</button>
+  </nav>
+
+  <!-- Area Utama Tempat Modul Dipanggil -->
+  <main id="content-area" class="main-container">
+    <div class="loading">Memuat Simulasi...</div>
+  </main>
+
+  <!-- Script Router Utama -->
+  <script src="js/app.js"></script>
+</body>
+</html>
