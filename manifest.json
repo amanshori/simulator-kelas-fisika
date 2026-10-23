@@ -1,1 +1,21 @@
-
+{
+  "name": "Simulator Kelas Fisika SMA",
+  "short_name": "SimFisika",
+  "description": "Media pembelajaran fisika berupa simulator dan kuis interaktif",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192x192.png?text=Fisika",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://via.placeholder.com/512x512.png?text=Fisika",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
