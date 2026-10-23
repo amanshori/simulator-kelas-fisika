@@ -8,13 +8,13 @@ async function loadModule(modulePath, element) {
   }
 
   try {
-    const response = await fetch(`modules/${modulePath}.html`);
-    if (!response.ok) throw new Error('Modul belum tersedia');
+    const response = await fetch(`./modules/${modulePath}.html`);
+    if (!response.ok) throw new Error(`File tidak ditemukan: ./modules/${modulePath}.html`);
 
     const html = await response.text();
     contentArea.innerHTML = html;
 
-    // Render Ulang LaTeX (KaTeX)
+    // Render ulang rumus LaTeX dengan KaTeX
     if (window.renderMathInElement) {
       renderMathInElement(contentArea, {
         delimiters: [
@@ -24,17 +24,19 @@ async function loadModule(modulePath, element) {
       });
     }
 
-    // Inisialisasi skrip simulator khusus modul jika ada
-    if (typeof initCurrentModule === 'function') {
-      initCurrentModule();
+    // Jalankan otomatis fungsi simulator jika ada di dalam modul
+    if (typeof initTrigoSimulator === 'function') {
+      initTrigoSimulator();
     }
 
   } catch (err) {
-    contentArea.innerHTML = `<div class="card"><h3>Modul Sedang Dikembangkan</h3><p>${err.message}</p></div>`;
+    contentArea.innerHTML = `<div class="card">
+      <h3 style="color: #e11d48;">Gagal Memuat Modul</h3>
+      <p style="margin-top: 0.5rem;">${err.message}</p>
+    </div>`;
   }
 }
 
-// Inisialisasi Otomatis & Register Service Worker PWA
 document.addEventListener('DOMContentLoaded', () => {
   loadModule('01-mekanika/01-vektor/01-trigonometri', document.querySelector('.nav-btn.active'));
 
